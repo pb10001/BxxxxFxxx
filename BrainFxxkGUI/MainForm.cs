@@ -21,6 +21,7 @@ namespace BrainFxxkGUI
 
         private void execButton_Click(object sender, EventArgs e)
         {
+            outputBox.Text = "";
             var io = new GraphicIO(stdInBox.Text);
             var b = new Brain(sourceBox.Text);
             b.IO = io;
