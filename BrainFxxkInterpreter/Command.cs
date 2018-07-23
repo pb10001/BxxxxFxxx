@@ -19,7 +19,7 @@ namespace BrainFxxkInterpreter
         {
             get
             {
-                if (instance == null) return Command.Default();
+                if (instance == null) return Default();
                 else return instance;
             }
         }
