@@ -10,7 +10,7 @@ namespace BrainFxxkInterpreter
     {
         public Brain(string code)
         {
-            Code = code.Replace(" ", "").Replace("\n", "");
+            Code = code.Replace(" ", "").Replace("\n", "").Replace("\t", "").Replace("\r", "");
         }
         const int MAX_LENGTH = 65535;
         Command cmd = Command.Instance;
@@ -90,7 +90,7 @@ namespace BrainFxxkInterpreter
             }
             else
             {
-                throw new InvalidOperationException("Invalid command is used.");
+                throw new InvalidOperationException(string.Format("Invalid command is used:{0}", (int)Code[currentCmd]));
             }
         }
     }
