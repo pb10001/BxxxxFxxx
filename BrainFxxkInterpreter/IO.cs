@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BrainFxxkInterpreter
 {
-    public class Class1
+    public interface IO
     {
+        int Read();
+        void Write(object chr);
     }
 }
