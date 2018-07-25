@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
-namespace BrainFxxkInterpreter
+using BrainFxxkInterpreter;
+namespace BrainFxxkConsole
 {
-    public class StdIO : IO
+    class ConsoleIO : IO
     {
+        public string Output { get; private set; } = "\n";
         public int Read()
         {
             return Console.ReadKey().KeyChar;
         }
+
         public void Write(object chr)
         {
-            Console.Write(chr);
+            Output += chr.ToString();
+        }
+        public void Print()
+        {
+            Console.WriteLine(Output);
         }
     }
 }

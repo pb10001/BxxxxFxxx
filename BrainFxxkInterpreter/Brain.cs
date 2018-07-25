@@ -19,12 +19,15 @@ namespace BrainFxxkInterpreter
         IO io = new StdIO();
         public IO IO
         {
+            get
+            {
+                return io;
+            }
             set
             {
                 io = value;
             }
         }
-
         public MyByte[] Memory { get; private set; } = Enumerable.Repeat(0, MAX_LENGTH).Select(x => new MyByte(x)).ToArray();
         public string Code { get; private set; }
         public void Fxxk()

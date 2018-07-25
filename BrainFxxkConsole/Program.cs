@@ -19,9 +19,11 @@ namespace BrainFxxkConsole
             using (StreamReader sr = new StreamReader(args[0]))
             {
                 var b = new Brain(sr.ReadToEnd());
+                b.IO = new ConsoleIO();
                 try
                 {
                     b.Fxxk();
+                    ((ConsoleIO)b.IO).Print();
                 }
                 catch (InvalidOperationException ex)
                 {
