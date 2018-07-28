@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
 namespace BrainFxxkInterpreter
 {
     public class Brain
     {
         public Brain(string code)
         {
-            Code = code.Replace(" ", "").Replace("\n", "").Replace("\t", "").Replace("\r", "");
+            Code = Regex.Replace(code.Replace(" ", "").Replace("\n", "").Replace("\t", "").Replace("\r", ""), @"[^,.<>+-\[\]]","");
         }
         const int MAX_LENGTH = 65535;
         Command cmd = Command.Instance;
