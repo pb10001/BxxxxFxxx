@@ -18,10 +18,11 @@ namespace BrainFxxkGUI
         {
             InitializeComponent();
         }
-
+        string output = "";
         private void execButton_Click(object sender, EventArgs e)
         {
             outputBox.Text = "";
+            output = "";
             var io = new GraphicIO(stdInBox.Text);
             var b = new Brain(sourceBox.Text);
             b.IO = io;
@@ -29,6 +30,7 @@ namespace BrainFxxkGUI
             try
             {
                 b.Fxxk();
+                outputBox.Text = output;
             }
             catch(InvalidOperationException ex)
             {
@@ -38,10 +40,7 @@ namespace BrainFxxkGUI
 
         private void Io_OnWrite(object obj)
         {
-            BeginInvoke(new Action(() =>
-            {
-                outputBox.Text += obj.ToString();
-            }));
+            output += obj.ToString();
         }
     }
 }
